@@ -1,0 +1,53 @@
+<div class="container-fluid text-center">
+    <h1>{{StoreName}}</h1>
+    <img [src]="StoreLogo" width="200" height="200"/>
+    <h3 *ngIf="ISDiscount">{{"We offer an explicit discount of : "}} {{Discount | percent}} </h3>
+    <div class="row">
+        
+    <div *ngIf="ISWelcome; then WelcomeMessage else tableView ">
+
+    </div>
+    <ng-template #tableView>
+      <div class="col">
+        <div ngbDropdown class="d-inline-block">
+          <button class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>{{SelectedItem}}</button>
+          <div ngbDropdownMenu aria-labelledby="dropdownBasic1" >
+            <button ngbDropdownItem *ngFor="let item of CategoryList" (click)="onSelectedCategory(item)">{{item.Name}}</button>
+          </div>
+      </div>
+  </div>
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col" *ngFor="let item of ProductList[IDOfCategory]">
+          <div class="card text-center h-100 " >
+            <img [src]="item.img" class="card-img-top" alt="..." >
+            <div class="card-body ">
+              <h5 class="card-title">{{item.Name}}</h5>
+              <p class="card-text">{{"The price : "}}{{item.Price | currency }}</p>
+              <p class="card-text">{{"The Quantity : "}}{{item.Quantity }}</p>
+            </div>
+            <div class="card-footer text-muted">
+              <button type="button" class="btn btn-primary" (click)="buyProduct()">Buy Now</button>
+            </div>
+          </div>
+        </div>
+    </div>
+  <p>{{ErrorMessage}}</p>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control" 
+      placeholder="Recipient's username" aria-label="Recipient's username" 
+      aria-describedby="basic-addon2"
+      [(ngModel)]="UserName"
+      >
+      <span class="input-group-text" id="basic-addon2">{{UserName}}</span>
+    </div>
+    </ng-template>
+
+    <ng-template #WelcomeMessage>
+      <h2>Thanks for purchasing from our Store {{UserName | uppercase}}</h2>
+      <div>
+        <button type="button" class="btn btn-success " (click)="goProducts()">Get Products</button>
+      </div>
+      
+    </ng-template>
+</div>
+
