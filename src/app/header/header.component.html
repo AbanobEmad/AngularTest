@@ -2,31 +2,59 @@
     
     <div class="container-fluid">
         <img src="assets/images/1.jpg" class="rounded-circle" alt="Cinque Terre" width="50" height="50" [id]="id">
-      <a class="navbar-brand" href="#">Navbar scroll</a>
+      <a class="navbar-brand" href="Home">Navbar scroll</a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarScroll">
         <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
           <li class="nav-item">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <a class="nav-link active" aria-current="page" href="Home">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
+            <a class="nav-link" routerLink="Product">Products</a>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              Link
-            </a>
-            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-              <li><a class="dropdown-item" href="#">Action</a></li>
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
-            </ul>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="User">Users</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="Post">Post</a>
           </li>
           <li class="nav-item">
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Link</a>
+          </li>
+          <div class="navbar-nav ml-auto action-buttons">
+            <div class="nav-item dropdown">
+              <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle mr-4">Login</a>
+                      <div class="dropdown-menu action-form">
+                <form action="/examples/actions/confirmation.php" method="post">
+                  <p class="hint-text">Sign in with your social media account</p>
+                  <div class="form-group social-btn clearfix">
+                    <a href="#" class="btn btn-secondary facebook-btn float-left"><i class="fa fa-facebook"></i> Facebook</a>
+                    <a href="#" class="btn btn-secondary twitter-btn float-right"><i class="fa fa-twitter"></i> Twitter</a>
+                  </div>
+                  <div class="or-seperator"><b>or</b></div>
+                  <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Username" required="required">
+                  </div>
+                  <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Password" required="required">
+                  </div>
+                  <input type="submit" class="btn btn-primary btn-block" value="Login">
+                  <div class="text-center mt-2">
+                    <a href="#">Forgot Your password?</a>
+                  </div>
+                </form>
+                      </div>
+            </div>
+          </div>
+        </ul>
+        <ul class="nav navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link " routerLink="Register"><span class="fas fa-user "></span> Sign Up</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="Login"><span class="fas fa-sign-in-alt"></span> Login</a>
           </li>
         </ul>
       </div>

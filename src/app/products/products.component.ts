@@ -70,6 +70,7 @@ export class ProductsComponent implements OnInit {
   this.ISWelcome=false;
   this.UserName="";
   this.ErrorMessage="";
-  this.productServes.GetAllProdCucts().subscribe(data=>{this.ProductList=data;})
+  this.productServes.GetAllProdCucts().subscribe(data=>{this.ProductList=data;});
+  
  }
 }
